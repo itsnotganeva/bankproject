@@ -60,15 +60,15 @@ public class DatabaseConfig {
         return dataSource;
     }
 
-//    @Bean
-//    public SpringLiquibase liquibase(DataSource dataSource) {
-//        SpringLiquibase liquibase = new SpringLiquibase();
-//
-//        liquibase.setChangeLog(changeLogFile);
-//        liquibase.setDataSource(dataSource);
-//
-//        return liquibase;
-//    }
+    @Bean
+    public SpringLiquibase liquibase(DataSource dataSource) {
+        SpringLiquibase liquibase = new SpringLiquibase();
+
+        liquibase.setChangeLog(changeLogFile);
+        liquibase.setDataSource(dataSource);
+
+        return liquibase;
+    }
 
     @Bean
     public PlatformTransactionManager transactionManager() throws Exception {

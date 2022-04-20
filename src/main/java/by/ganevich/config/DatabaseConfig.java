@@ -26,19 +26,19 @@ import java.util.Properties;
 @PropertySource("classpath:application.properties")
 public class DatabaseConfig {
 
-    @Value("${postgres.username}")
+    @Value("${spring.datasource.username}")
     private String username;
 
-    @Value("${password}")
+    @Value("${spring.datasource.password}")
     private String password;
 
-    @Value("${url}")
+    @Value("${spring.datasource.url}")
     private String url;
 
     @Value("${driver}")
     private String driver;
 
-    @Value("${dialect}")
+    @Value("${spring.jpa.database-platform}")
     private String dialect;
 
     @Value("${packagesToScan}")
@@ -60,15 +60,15 @@ public class DatabaseConfig {
         return dataSource;
     }
 
-    @Bean
-    public SpringLiquibase liquibase(DataSource dataSource) {
-        SpringLiquibase liquibase = new SpringLiquibase();
-
-        liquibase.setChangeLog(changeLogFile);
-        liquibase.setDataSource(dataSource);
-
-        return liquibase;
-    }
+//    @Bean
+//    public SpringLiquibase liquibase(DataSource dataSource) {
+//        SpringLiquibase liquibase = new SpringLiquibase();
+//
+//        liquibase.setChangeLog(changeLogFile);
+//        liquibase.setDataSource(dataSource);
+//
+//        return liquibase;
+//    }
 
     @Bean
     public PlatformTransactionManager transactionManager() throws Exception {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="/" class="w3-bar-item w3-button"><b>BANK</b>System</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="#account" class="w3-bar-item w3-button">Create account</a>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src="https://studyinginswitzerland.com/wp-content/uploads/2020/05/how-to-open-a-Swiss-bank-account-1170x600.jpg" alt="Architecture" width="1500" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BANK</b></span> <span class="w3-hide-small w3-text-light-grey">System</span></h1>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+    <!-- Transaction form-->
+    <div class="w3-row-padding" id="account">
+        <h1>Create new client</h1>
+        <form th:method="PATCH" th:action="@{/clients/{clientId}(clientId=${client.id})}" th:object="${client}">
+            <input type='text' th:field="*{name}" placeholder='Client name: '>
+            <input type='text' th:field="*{type}" placeholder='Client type (INDIVIDUAL/INDUSTRIAL): '>
+            <input id="edit" type="submit" value="CREATE">
+        </form>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+    <p>By Matsvei Hanevich</p>
+</footer>
+
+</body>
+</html>

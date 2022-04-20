@@ -16,24 +16,7 @@ public class Application {
     private static ConsoleInterpreter interpreter;
 
     public static void main(String[] args) {
-
-        System.out.println("cli - Console app \n"
-                + "api - Web app");
-        Scanner in = new Scanner(System.in);
-
-        String command = in.nextLine();
-
-        if (command.equals("cli")) {
-            ApplicationContext applicationContext =
-                    new AnnotationConfigApplicationContext(Application.class);
-            interpreter = applicationContext.getBean(ConsoleInterpreter.class);
-
-            interpreter.invokeCommand();
-        } else if (command.equals("api")) {
-            SpringApplication.run(Application.class);
-        } else {
-            throw new CommandNotFoundException("Command entered incorrectly. Enter 'api' or 'cli'");
-        }
+        SpringApplication.run(Application.class);
 
     }
 }

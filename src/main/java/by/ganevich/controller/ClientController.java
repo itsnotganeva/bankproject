@@ -2,7 +2,6 @@ package by.ganevich.controller;
 
 import by.ganevich.dto.BankAccountDto;
 import by.ganevich.dto.ClientDto;
-import by.ganevich.dto.CreateBankAccountDto;
 import by.ganevich.dto.RegistrationRequestDto;
 import by.ganevich.entity.BankAccount;
 import by.ganevich.entity.Client;
@@ -23,7 +22,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;

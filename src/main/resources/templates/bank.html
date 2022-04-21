@@ -5,6 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    #clients{
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,36 +19,13 @@
     <a href="/" class="w3-bar-item w3-button"><b>BANK</b>System</a>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="#bank" class="w3-bar-item w3-button">Banks</a>
       <a href="#client" class="w3-bar-item w3-button">Clients</a>
     </div>
   </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="https://studyinginswitzerland.com/wp-content/uploads/2020/05/how-to-open-a-Swiss-bank-account-1170x600.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BANK</b></span> <span class="w3-hide-small w3-text-light-grey">System</span></h1>
-  </div>
-</header>
-
 <!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
-
-  <!-- Bank content -->
-  <div class="w3-row-padding" id="bank">
-    <h1 th:utext="${bank.name}"></h1>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://media.istockphoto.com/vectors/bank-building-isolated-on-white-background-vector-illustration-flat-vector-id900791430?k=20&m=900791430&s=612x612&w=0&h=IKTkhxiIwAL6-HMfm9tfW6ti2e4V2roX2IgpUUrbLME=" style="width:100%">
-      <h3 th:utext="${bank.name}"></h3>
-      <p class="w3-opacity">Bank</p>
-    </div>
-  </div>
-
-
-
-  <!-- Client content-->
+<div class="w3-content w3-padding" style="max-width:1564px" id="clients">
   <div class="w3-row-padding" id="client">
     <h1>Clients of <b th:utext="${bank.name}"></b></h1>
     <tr th:each="client:${clients}">
@@ -56,15 +38,6 @@
       </div>
     </tr>
   </div>
-
-<!-- End page content -->
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>By Matsvei Hanevich</p>
-</footer>
-
 </body>
 </html>

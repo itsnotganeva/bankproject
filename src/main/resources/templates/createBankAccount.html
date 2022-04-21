@@ -5,6 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .signup {
+            position: absolute;
+            float: left;
+            width: 550px;
+            left: 618px;
+            top: 255px;
+            padding: 30px 20px;
+            background-color: white;
+            text-align: center;
+            border-radius: 5px 0 0 5px;
+        }
+        [type=text] {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            border: 0;
+            border-bottom: 1px solid rgba(0,0,0,.2);
+            height: 45px;
+            line-height: 45px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: black;
+        }
+        [type=submit] {
+            margin-top: 25px;
+            width: 80%;
+            border: 0;
+            background-color: #53CACE;
+            border-radius: 5px;
+            height: 50px;
+            color: white;
+            font-weight: 400;
+            font-size: 1em;
+        }
+        [type='text']:focus {
+            outline: none;
+            border-color: #53CACE;
+        }
+        #edit {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 30px;
+            line-height: 23px;
+            color: black;
+            text-decoration: underline;
+            border: none;
+            background: none;
+            cursor: pointer;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,38 +72,22 @@
     </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="https://studyinginswitzerland.com/wp-content/uploads/2020/05/how-to-open-a-Swiss-bank-account-1170x600.jpg" alt="Architecture" width="1500" height="800">
-    <div class="w3-display-middle w3-margin-top w3-center">
-        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BANK</b></span> <span class="w3-hide-small w3-text-light-grey">System</span></h1>
-    </div>
-</header>
-
-<!-- Page content -->
 <div class="w3-content w3-padding" style="max-width:1564px">
 
-    <!-- Transaction form-->
-    <div class="w3-row-padding" id="account">
-        <h1>Create bank account</h1>
-        <form th:method="PATCH" th:action="@{/bank-accounts}" th:object="${account}">
-            <input type='text' th:field="*{number}" placeholder='Number: '>
-            <input type='text' th:field="*{clientName}" placeholder='Client name: '>
-            <input type='text' th:field="*{bankName}" placeholder='Bank name:'>
-            <input type='text' th:field="*{currency}" placeholder='Currency (USD/EUR/BYN):'>
-            <input type='text' th:field="*{amountOfMoney}" placeholder='Amount of money:'>
-            <input id="edit" type="submit" value="CREATE">
-        </form>
+    <div class="container">
+        <div class='signup'>
+            <h1>Create bank account</h1>
+            <form th:method="PATCH" th:action="@{/bank-accounts}" th:object="${account}">
+                <input required type='text' pattern="^[0-9]{5}$" th:field="*{number}" placeholder='Number (5 digits): '>
+                <input required type='text' pattern="[A-Z][a-z]*" th:field="*{clientName}" placeholder='Client name: '>
+                <input required type='text' pattern="[A-Z][a-z]*" th:field="*{bankName}" placeholder='Bank name:'>
+                <input required type='text' pattern="^USD$|^EUR$|^BYN$" th:field="*{currency}" placeholder='Currency (USD/EUR/BYN):'>
+                <input required type='text' pattern="[0-9]+(\.[0-9]{1,2})?%?" th:field="*{amountOfMoney}" placeholder='Amount of money:'>
+                <input id="edit" type="submit" value="CREATE">
+            </form>
+        </div>
     </div>
-
-    <!-- End page content -->
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-    <p>By Matsvei Hanevich</p>
-</footer>
 
 </body>
 </html>

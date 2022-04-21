@@ -5,6 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    #clients{
+      margin-top: 50px;
+    }
+    #buttons{
+      position: absolute;
+      top: 157px;
+      left: 756px;
+      width: 876px;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,25 +31,19 @@
   </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="https://studyinginswitzerland.com/wp-content/uploads/2020/05/how-to-open-a-Swiss-bank-account-1170x600.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BANK</b></span> <span class="w3-hide-small w3-text-light-grey">System</span></h1>
-  </div>
-</header>
-
 <!-- Page content -->
 <div class="w3-content w3-padding" style="max-width:1564px">
 
-  <!-- Client content-->
+  <div class="w3-content w3-padding" style="max-width:1564px" id="clients">
   <div class="w3-row-padding" id="client">
     <h1 th:utext="${client.name}"></h1>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" alt="John" style="width:100%">
       <h3 th:utext="${client.name}"></h3>
       <p class="w3-opacity" th:utext="${client.type}"></p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+  </div>
+  </div>
+    <div id="buttons">
       <p><a href="/transactions"><button class="w3-button w3-light-grey w3-block">Make transaction</button></a></p>
       <p><a th:href="@{/transactions/get/{clientId}(clientId=${client.id})}"><button class="w3-button w3-light-grey w3-block">View transactions</button></a></p>
       <p><a th:href="@{/bank-accounts}"><button class="w3-button w3-light-grey w3-block">Create bank account</button></a></p>
@@ -47,8 +52,7 @@
         <input class="w3-button w3-light-grey w3-block" type="submit" value="DELETE">
       </form>
     </div>
-  </div>
-
+    </div>
   <!-- Bank account content -->
   <div class="w3-row-padding" id="bankAccount">
     <h1>Bank Accounts</h1>
@@ -69,44 +73,10 @@
         <p><a th:href="@{/bank-accounts/get/{accountId}(accountId=${account.id})}"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
       </div>
     </tr>
-<!--    <div class="w3-col l3 m6 w3-margin-bottom">-->
-<!--      <img src="https://i.pinimg.com/736x/90/19/4b/90194b7f2ca68a3d80dc41a6e20ae1de.jpg" alt="John" style="width:100%">-->
-<!--      <h3>Bank Account 1</h3>-->
-<!--      <p class="w3-opacity">VTB Bank</p>-->
-<!--      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
-<!--      <p><a href="bankAccount.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>-->
-<!--    </div>-->
-<!--    <div class="w3-col l3 m6 w3-margin-bottom">-->
-<!--      <img src="https://i.pinimg.com/736x/90/19/4b/90194b7f2ca68a3d80dc41a6e20ae1de.jpg" alt="Jane" style="width:100%">-->
-<!--      <h3>Bank Account 2</h3>-->
-<!--      <p class="w3-opacity">Belarusbank</p>-->
-<!--      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
-<!--      <p><a href="bankAccount.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>-->
-<!--    </div>-->
-<!--    <div class="w3-col l3 m6 w3-margin-bottom">-->
-<!--      <img src="https://i.pinimg.com/736x/90/19/4b/90194b7f2ca68a3d80dc41a6e20ae1de.jpg" alt="Mike" style="width:100%">-->
-<!--      <h3>Bank Account 3</h3>-->
-<!--      <p class="w3-opacity">Alfa-Bank</p>-->
-<!--      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
-<!--      <p><a href="bankAccount.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>-->
-<!--    </div>-->
-<!--    <div class="w3-col l3 m6 w3-margin-bottom">-->
-<!--      <img src="https://i.pinimg.com/736x/90/19/4b/90194b7f2ca68a3d80dc41a6e20ae1de.jpg" alt="Dan" style="width:100%">-->
-<!--      <h3>Bank Account 4</h3>-->
-<!--      <p class="w3-opacity">Tinkoff Bank</p>-->
-<!--      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
-<!--      <p><a href="bankAccount.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>-->
-<!--    </div>-->
   </div>
 
 <!-- End page content -->
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>By Matsvei Hanevich</p>
-</footer>
 
 </body>
 </html>

@@ -78,7 +78,7 @@ public class TransactionController {
         log.info("REST: Make transaction is called");
         if (!transactionValidator.validateDto(conductTransactionDto)) {
             log.info("REST: The input data of transaction is invalid");
-            return "transaction";
+            return "result";
         }
         model.addAttribute("transaction", conductTransactionDto);
         transactionService.sendMoney(
@@ -87,6 +87,6 @@ public class TransactionController {
                         Double.valueOf(conductTransactionDto.getAmountOfMoney())
                 );
         log.info("REST: Transaction was carried out successful");
-        return "transaction";
+        return "result";
     }
 }

@@ -77,7 +77,7 @@ public class ClientController {
         client.setType(ClientType.valueOf(registrationRequestDto.getType()));
         client.setUser(u);
         clientService.save(client);
-        return "index";
+        return "result";
     }
 
     @GetMapping(value = "/clients/get")
@@ -125,7 +125,7 @@ public class ClientController {
         findClientDto.setType(clientDto.getType());
         Client client = clientMapper.toEntity(findClientDto);
         clientService.save(client);
-        return "index";
+        return "result";
     }
 
     @PostMapping(value = "/clients/delete/{id}")
@@ -140,7 +140,7 @@ public class ClientController {
         clientService.deleteClientById(id);
 
         log.info("REST: Client with id" + id + " was removed successful");
-        return "index";
+        return "result";
     }
 
 }

@@ -74,12 +74,12 @@ public class BankAccountController {
 
         if (!bankAccountValidator.validateDto(bankAccountDto)) {
             log.error("REST: input of bank data is invalid");
-            return "index";
+            return "result";
         }
         BankAccount bankAccount = bankAccountMapper.toEntity(bankAccountDto);
         bankAccountService.save(bankAccount);
         log.info("REST: bank is created successfully");
-        return "index";
+        return "result";
     }
 
     @GetMapping(value = "/bank-accounts/get/{id}")

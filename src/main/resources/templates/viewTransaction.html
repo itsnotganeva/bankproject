@@ -5,6 +5,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .signup {
+      position: absolute;
+      float: left;
+      width: 550px;
+      left: 618px;
+      top: 305px;
+      padding: 30px 20px;
+      background-color: white;
+      text-align: center;
+      border-radius: 5px 0 0 5px;
+    }
+    [type=text] {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+      border: 0;
+      border-bottom: 1px solid rgba(0,0,0,.2);
+      height: 45px;
+      line-height: 45px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: black;
+    }
+    [type=submit] {
+      margin-top: 25px;
+      width: 80%;
+      border: 0;
+      background-color: #53CACE;
+      border-radius: 5px;
+      height: 50px;
+      color: white;
+      font-weight: 400;
+      font-size: 1em;
+    }
+    [type='text']:focus {
+      outline: none;
+      border-color: #53CACE;
+    }
+    #edit {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 23px;
+      color: black;
+      text-decoration: underline;
+      border: none;
+      background: none;
+      cursor: pointer;
+      width: auto;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,36 +72,23 @@
   </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="https://studyinginswitzerland.com/wp-content/uploads/2020/05/how-to-open-a-Swiss-bank-account-1170x600.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BANK</b></span> <span class="w3-hide-small w3-text-light-grey">System</span></h1>
-  </div>
-</header>
-
 <!-- Page content -->
 <div class="w3-content w3-padding" style="max-width:1564px">
 
+  <div class="container">
+    <div class='signup'>
+      <h1>View transaction</h1>
+      <form th:method="GET" th:action="@{/transactions/info}" th:object="${trans}">
+        <input required type='text' pattern="[A-Z][a-z]*" th:field="*{clientName}" placeholder='Sender name:'>
+        <input required type='text' pattern="^/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/" th:field="*{dateBefore}" placeholder='Date before (YYYY-MM-DD):'>
+        <input required type='text' pattern="^/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/" th:field="*{dateAfter}" placeholder='Date after (YYYY-MM-DD):'>
+        <input id="edit" type="submit" value="VIEW">
+      </form>
+    </div>
+  </div>
   <!-- Transaction form-->
   <div class="w3-row-padding" id="trans">
-    <h1>View transaction</h1>
-    <form th:method="GET" th:action="@{/transactions/info}" th:object="${trans}">
-      <input type='text' th:field="*{clientName}" placeholder='Sender name:'>
-      <input type='text' th:field="*{dateBefore}" placeholder='Date before:'>
-      <input type='text' th:field="*{dateAfter}" placeholder='Date after:'>
-      <input id="edit" type="submit" value="VIEW">
-    </form>
+    <!-- End page content -->
   </div>
-
-  <!-- End page content -->
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>By Matsvei Hanevich</p>
-</footer>
-
 </body>
 </html>

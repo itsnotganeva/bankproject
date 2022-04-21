@@ -1,6 +1,5 @@
 package by.ganevich.config;
 
-import liquibase.integration.spring.SpringLiquibase;
 import org.hibernate.cfg.Environment;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.FactoryBean;

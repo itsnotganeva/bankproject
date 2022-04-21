@@ -33,6 +33,10 @@ public class BankAccountService implements BaseService<BankAccount> {
         return bankAccount;
     }
 
+    public List<BankAccount> getByBank(Bank bank) {
+        return bankAccountRepository.findBankAccountByBankProducer(bank);
+    }
+
     public Set<BankAccount> getAllAccountsOfClient(Client client) {
         log.info("BankAccountService: Get all accounts of client is called.");
         Set<BankAccount> bankAccounts = bankAccountRepository.findBankAccountByOwner(client);

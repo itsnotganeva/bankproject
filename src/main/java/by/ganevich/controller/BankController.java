@@ -3,9 +3,11 @@ package by.ganevich.controller;
 import by.ganevich.dto.BankDto;
 import by.ganevich.dto.ClientDto;
 import by.ganevich.entity.Bank;
+import by.ganevich.entity.BankAccount;
 import by.ganevich.entity.Client;
 import by.ganevich.mapper.interfaces.BankMapper;
 import by.ganevich.mapper.interfaces.ClientMapper;
+import by.ganevich.service.BankAccountService;
 import by.ganevich.service.BankService;
 import by.ganevich.service.ClientService;
 import by.ganevich.validator.CustomValidator;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,9 +35,9 @@ public class BankController {
     private final BankService bankService;
     private final CustomValidator<BankDto> bankValidator;
     private final BankMapper bankMapper;
-
     private final ClientService clientService;
     private final ClientMapper clientMapper;
+    private final BankAccountService bankAccountService;
 
     @GetMapping
     public String startPage(Model model) {
@@ -95,6 +98,12 @@ public class BankController {
         BankDto bankDto = bankMapper.toDto(bank.get());
         model.addAttribute("bank", bankDto);
 
+        List<BankAccount> bankAccounts = bankAccountService.getByBank(bank.get());
+        List<Client> clients = new ArrayList<>();
+        for (BankAccount bankAccount : bankAccounts) {
+            clients.add(clientService.findClientById(bankAccount.getOwner().getId()).get());
+        }
+        model.addAttribute("clients", clients);
 
         log.info("REST: Reading of bank with id" + id + " was successful");
         return "bank";

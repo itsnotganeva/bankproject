@@ -45,35 +45,16 @@
 
   <!-- Client content-->
   <div class="w3-row-padding" id="client">
-    <h1>Clients of Alfa-Bank</h1>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" style="width:100%">
-      <h3>Client 1</h3>
-      <p class="w3-opacity">Individual</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><a href="client.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" alt="Jane" style="width:100%">
-      <h3>Client 2</h3>
-      <p class="w3-opacity">Industrial</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><a href="client.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" alt="Mike" style="width:100%">
-      <h3>Client 3</h3>
-      <p class="w3-opacity">Individual</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><a href="client.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" alt="Dan" style="width:100%">
-      <h3>Client 4</h3>
-      <p class="w3-opacity">Individual</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><a href="client.html"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
-    </div>
+    <h1>Clients of <b th:utext="${bank.name}"></b></h1>
+    <tr th:each="client:${clients}">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <img src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352062-stock-illustration-default-placeholder-profile-icon.jpg" alt="John" style="width:100%">
+        <h3 th:utext="${client.name}"></h3>
+        <p class="w3-opacity" th:utext="${client.type}">Individual</p>
+        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <p><a th:href="@{/clients/get/{clientId}(clientId=${client.id})}"><button class="w3-button w3-light-grey w3-block">View</button></a></p>
+      </div>
+    </tr>
   </div>
 
 <!-- End page content -->

@@ -80,8 +80,8 @@
       <h1>View transaction</h1>
       <form th:method="GET" th:action="@{/transactions/info}" th:object="${trans}">
         <input required type='text' pattern="[A-Z][a-z]*" th:field="*{clientName}" placeholder='Sender name:'>
-        <input required type='text' pattern="^/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/" th:field="*{dateBefore}" placeholder='Date before (YYYY-MM-DD):'>
-        <input required type='text' pattern="^/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/" th:field="*{dateAfter}" placeholder='Date after (YYYY-MM-DD):'>
+        <input required type='text' pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))" th:field="*{dateBefore}" placeholder='Date before (YYYY-MM-DD):'>
+        <input required type='text' pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))" th:field="*{dateAfter}" placeholder='Date after (YYYY-MM-DD):'>
         <input id="edit" type="submit" value="VIEW">
       </form>
     </div>

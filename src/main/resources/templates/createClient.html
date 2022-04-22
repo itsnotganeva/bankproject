@@ -79,7 +79,7 @@
         <div class='signup'>
             <h1>Create new client</h1>
             <form th:method="PATCH" th:action="@{/clients}" th:object="${client}">
-                <input required type='text' pattern="[a-zA-Z]" th:field="*{login}" placeholder='Login:'>
+                <input required type='text' th:field="*{login}" placeholder='Login:'>
                 <input required type='text' th:field="*{password}" placeholder='Password:'>
                 <input required type='text' pattern="[A-Z][a-z]*" th:field="*{name}" placeholder='Client name: '>
                 <input required type='text' pattern="^INDIVIDUAL$|^INDUSTRIAL$" th:field="*{type}" placeholder='Client type (INDIVIDUAL/INDUSTRIAL): '>
